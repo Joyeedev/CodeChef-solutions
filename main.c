@@ -20,14 +20,15 @@ int main(){
     scanf("%s %s",s1,s2);
     int len1=strlen(s1);
     for(int start=0;start<len1;start++){
+            for(int end=start;end<len1;end++){
             char temp[100]="";
-        for(int end=start;end<len1;end++){
-            int l=strlen(temp);
-            temp[l]=s1[end];
-            temp[l+1]='\0';
+            strncpy(temp,s1+start,end-start+1);
+            temp[end-start+1]='\0';
             if(strstr(s2,temp)!=NULL){
                 strcpy(sub[count],temp);
-                    count++;}
+                count++;
+            }
+
         }
     }
     printf("%d\n",count);
